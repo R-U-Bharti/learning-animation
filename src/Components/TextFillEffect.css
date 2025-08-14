@@ -1,0 +1,32 @@
+.sectionText {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  margin: "auto";
+
+  .container1 {
+    h2 {
+      background: unset;
+      -webkit-text-fill-color: unset;
+      font-size: 48px !important;
+    }
+  }
+}
+
+.container1 {
+  width: 100%;
+  position: sticky;
+  top: 40.5%;
+
+  z-index: 999;
+  text-align: center;
+}
+
+.text-fill {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}

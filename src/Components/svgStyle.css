@@ -1,0 +1,48 @@
+body {
+    background-color: #1b1b1d;
+    color: #ccc;
+    text-align: center;
+    /* padding-top: 1rem; */
+}
+
+#template,
+#path {
+    fill: none;
+}
+
+#template {
+    stroke-width: 5px;
+    stroke: #444;
+}
+
+#path {
+    stroke: #0ae448;
+    stroke-width: 20px;
+}
+
+#code,
+#value {
+    font-size: 2rem;
+    font-family: monospace;
+}
+
+#code {
+    color: #777;
+    margin: 20px;
+    position: relative;
+    visibility: hidden;
+}
+
+#current {
+    display: inline-block;
+    color: white;
+}
+
+#description {
+    max-width: 530px;
+    color: #777;
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem;
+    display: inline-block;
+    text-align: left;
+}
