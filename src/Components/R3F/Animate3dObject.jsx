@@ -27,6 +27,7 @@ const Animate3dObject = () => {
   ];
 
   const zIndex = [-5, 0, 3, 1];
+  const rotationY = [-Math.PI / 4, -Math.PI / 3.5, -Math.PI / 1.5, -Math.PI / 3.5, -Math.PI / 4];
 
   useGSAP(() => {
     // IPHONE ANIMATION
@@ -138,6 +139,7 @@ const Animate3dObject = () => {
           const p = self.progress; // 0 → 1 across all scroll
 
           let zValue = zIndex[0]; // default for section 1
+          let rotationValue = rotationY[0]; // default for section 1
 
           if (p <= 0.25) {
             // Section 1 → Section 2
@@ -146,6 +148,13 @@ const Animate3dObject = () => {
               0.25,
               zIndex[0],
               zIndex[1],
+              p
+            );
+            rotationValue = gsap.utils.mapRange(
+              0,
+              0.25,
+              rotationY[0],
+              rotationY[1],
               p
             );
           } else if (p <= 0.5) {
@@ -157,6 +166,13 @@ const Animate3dObject = () => {
               zIndex[2],
               p
             );
+            rotationValue = gsap.utils.mapRange(
+              0.25,
+              0.5,
+              rotationY[1],
+              rotationY[2],
+              p
+            );
           } else if (p <= 0.75) {
             // Section 3 → Section 4
             zValue = gsap.utils.mapRange(
@@ -166,13 +182,22 @@ const Animate3dObject = () => {
               zIndex[3],
               p
             );
+            rotationValue = gsap.utils.mapRange(
+              0.5,
+              0.75,
+              rotationY[2],
+              rotationY[3],
+              p
+            );
           } else {
             // Section 4 → End (stay at -45°)
             zValue = zIndex[4];
+            rotationValue = rotationY[4];
           }
 
           // Apply instantly without GSAP tween (so it updates in real time)
           setPosition([0, -1, zValue]);
+          setRotation([0, rotationValue, 0]);
         },
       },
     });
@@ -188,8 +213,8 @@ const Animate3dObject = () => {
   });
 
   return (
-    <main ref={mainRef} className="overflow-hidden">
-      <div className="h-screen w-screen bg-gradient-to-t from-slate-700 to-slate-950">
+    <main ref={mainRef} className="overflow-hidden bg-gradient-to-b from-slate-800 via-slate-500 to-black">
+      <div className="h-screen w-screen bg-gradien-to-t from-slate-700 to-slate-950">
         Section 1
         <div ref={sceneRef} className="h-screen w-screen z-10">
           <Canvas>
@@ -203,13 +228,13 @@ const Animate3dObject = () => {
         </div>
       </div>
 
-      <div className="h-screen w-screen bg-gradient-to-t from-violet-700 to-slate-950">
+      <div className="h-screen w-screen bg-gradien-to-t from-violet-700 to-slate-950">
         Section 2
       </div>
-      <div className="h-screen w-screen bg-gradient-to-t from-amber-700 to-slate-950">
+      <div className="h-screen w-screen bg-gradien-to-t from-amber-700 to-slate-950">
         Section 3
       </div>
-      <div className="h-screen w-screen bg-gradient-to-t from-sky-700 to-slate-950">
+      <div className="h-screen w-screen bg-gradien-to-t from-sky-700 to-slate-950">
         Section 4
       </div>
     </main>
