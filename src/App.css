@@ -4,6 +4,21 @@
   box-sizing: border-box;
 }
 
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  background-color: light-dark(rgb(233, 233, 233), rgb(26, 26, 26));
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  user-drag: none;
+}
+
 /* body css for gsap learning component */
 body {
   /* background: linear-gradient(0deg, #05004b, #000000); */
@@ -11,7 +26,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center; */
-  background-color: white;
+  /* background-color: white; */
 }
 
 canvas {

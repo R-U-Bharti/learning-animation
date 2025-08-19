@@ -4,6 +4,8 @@ import "./App.css";
 import HorizontalScroll from "./Components/Horizontal/HorizontalScroll";
 import Test from "./Components/Test";
 import SquareRotation from "./Components/SquareRotation";
+import MapSvg from "./Components/MapSvg";
+import ThreeIndex from "./Components/R3F/ThreeIndex";
 const App = () => {
   useEffect(() => {
     const lenis = new Lenis({
@@ -41,7 +43,8 @@ const App = () => {
 
       {/* <VideoSequence /> */}
       {/* <HorizontalScroll /> */}
-      <SquareRotation />
+      {/* <SquareRotation /> */}
+      <ThreeIndex />
     </>
   );
 };
