@@ -17,7 +17,9 @@ const Animate3dObjectL2 = () => {
 
   const actionsRef = useRef(null);
   const [rotation, setRotation] = useState([0, 0, 0]);
-  const [position, setPosition] = useState([0, -1, 0]);
+  const [position, setPosition] = useState([0, -1, 2]);
+
+  const getDegree = value => (value * Math.PI) / 180;
 
   const animations = [
     "03_Sphere_bot_Open",
@@ -39,7 +41,6 @@ const Animate3dObjectL2 = () => {
   ];
 
   useGSAP(() => {
-
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sceneRef.current,
@@ -47,6 +48,35 @@ const Animate3dObjectL2 = () => {
         end: "+=600%",
         scrub: true,
         pin: true,
+        onUpdate: self => {
+          const p = self.progress;
+          const steps = Math.ceil(p * 5);
+  
+          let value = 0;
+          actionsRef.current?.[animations[steps - 1]]
+            ?.reset()
+            .fadeIn(0.5)
+            .play();
+            
+          if (p < 0.79) {
+            // if (steps === 1) {
+            //   animations.forEach(action =>
+            //     actionsRef.current?.[action]?.fadeOut(0.5)
+            //   );
+            // }
+
+            value = gsap.utils.mapRange(
+              0,
+              0.79 * 2,
+              getDegree(0),
+              getDegree(360),
+              p
+            );
+          } else {
+            value = getDegree(360);
+          }
+          setRotation([0, value, 0]);
+        },
       },
     });
 
@@ -66,20 +96,19 @@ const Animate3dObjectL2 = () => {
         x: "-25vw",
       });
 
-      const tl3 = gsap.timeline({
-        scrollTrigger: {
-          trigger: thirdRef.current,
-          start: "top top",
-          end: "+=300%",
-          scrub: true,
-          pin: true,
-        },
-      })
-
-      tl3.to("#textTransform", {
-      x: "-100%",
+    const tl3 = gsap.timeline({
+      scrollTrigger: {
+        trigger: thirdRef.current,
+        start: "top top",
+        end: "+=300%",
+        scrub: true,
+        pin: true,
+      },
     });
 
+    tl3.to("#textTransform", {
+      x: "-100%",
+    });
   });
 
   return (
@@ -94,9 +123,15 @@ const Animate3dObjectL2 = () => {
         </Canvas>
       </div>
 
-      <div ref={firstRef} className="h-screen w-screen bg-gradient-to-t from-slate-700 to-slate-950"></div>
+      <div
+        ref={firstRef}
+        className="h-screen w-screen bg-gradient-to-t from-slate-700 to-slate-950"
+      ></div>
 
-      <div ref={secondRef} className="h-screen w-screen bg-gradient-to-t from-violet-700 to-slate-950" />
+      <div
+        ref={secondRef}
+        className="h-screen w-screen bg-gradient-to-t from-violet-700 to-slate-950"
+      />
 
       <div
         ref={thirdRef}
@@ -110,7 +145,10 @@ const Animate3dObjectL2 = () => {
         </div>
       </div>
 
-      <div ref={fourthRef} className="h-screen w-screen bg-gradient-to-t from-sky-700 to-slate-950" />
+      <div
+        ref={fourthRef}
+        className="h-screen w-screen bg-gradient-to-t from-sky-700 to-slate-950"
+      />
     </div>
   );
 };

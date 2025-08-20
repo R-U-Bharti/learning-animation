@@ -215,7 +215,6 @@ const Animate3dObject = () => {
   return (
     <main ref={mainRef} className="overflow-hidden bg-gradient-to-b from-slate-800 via-slate-500 to-black">
       <div className="h-screen w-screen bg-gradien-to-t from-slate-700 to-slate-950">
-        Section 1
         <div ref={sceneRef} className="h-screen w-screen z-10">
           <Canvas>
             {/* <Scene iphoneRef={iphoneRef} /> */}
@@ -229,13 +228,10 @@ const Animate3dObject = () => {
       </div>
 
       <div className="h-screen w-screen bg-gradien-to-t from-violet-700 to-slate-950">
-        Section 2
       </div>
       <div className="h-screen w-screen bg-gradien-to-t from-amber-700 to-slate-950">
-        Section 3
       </div>
       <div className="h-screen w-screen bg-gradien-to-t from-sky-700 to-slate-950">
-        Section 4
       </div>
     </main>
   );
