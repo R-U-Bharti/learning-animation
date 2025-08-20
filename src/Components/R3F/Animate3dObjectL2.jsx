@@ -112,7 +112,7 @@ const Animate3dObjectL2 = () => {
   });
 
   return (
-    <div className="overflow-hidden bg-gradient-to-b from-slate-900 via-slate-700 to-black">
+    <div className="overflow-hidden ">
       <div ref={sceneRef} className="h-screen w-screen z-10 absolute">
         <Canvas>
           <Scene
@@ -125,17 +125,17 @@ const Animate3dObjectL2 = () => {
 
       <div
         ref={firstRef}
-        className="h-screen w-screen bg-gradient-to-t from-slate-700 to-slate-950"
+        className="h-screen w-screen bg-gradien-to-t from-slate-700 to-slate-950"
       ></div>
 
       <div
         ref={secondRef}
-        className="h-screen w-screen bg-gradient-to-t from-violet-700 to-slate-950"
+        className="h-screen w-screen bg-gradien-to-t from-violet-700 to-slate-950"
       />
 
       <div
         ref={thirdRef}
-        className="h-screen w-screen flex items-center bg-gradient-to-t from-amber-700 to-slate-950"
+        className="h-screen w-screen flex items-center bg-gradien-to-t from-amber-700 to-slate-950"
       >
         <div
           id="textTransform"
@@ -147,7 +147,7 @@ const Animate3dObjectL2 = () => {
 
       <div
         ref={fourthRef}
-        className="h-screen w-screen bg-gradient-to-t from-sky-700 to-slate-950"
+        className="h-screen w-screen bg-gradien-to-t from-sky-700 to-slate-950"
       />
     </div>
   );
