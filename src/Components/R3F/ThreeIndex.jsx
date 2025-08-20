@@ -1,11 +1,15 @@
 import React from "react";
 import Animate3dObject from "./Animate3dObject";
 import ThreeDText from "./ThreeDText";
+import Animate3dObjectL2 from "./Animate3dObjectL2";
+import PinComponent from "./PinComponent";
 
 const ThreeIndex = () => {
   return (
     <>
-      <Animate3dObject />
+      <Animate3dObjectL2 />
+      {/* <PinComponent /> */}
+      {/* <Animate3dObject /> */}
       {/* <ThreeDText /> */}
     </>
   );
