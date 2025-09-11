@@ -6,6 +6,9 @@ import Test from "./Components/Test";
 import SquareRotation from "./Components/SquareRotation";
 import MapSvg from "./Components/MapSvg";
 import ThreeIndex from "./Components/R3F/ThreeIndex";
+import RouteMax from "./Components/HSection4/RouteMax";
+import PinComponent from "./Components/R3F/PinComponent";
+import ControlAnimation from "./Components/R3F/CA/ControlAnimation";
 const App = () => {
   useEffect(() => {
     const lenis = new Lenis({
@@ -44,7 +47,13 @@ const App = () => {
       {/* <VideoSequence /> */}
       {/* <HorizontalScroll /> */}
       {/* <SquareRotation /> */}
-      <ThreeIndex />
+      {/* <ThreeIndex /> */}
+
+      {/* <PinComponent /> */}
+
+      {/* <RouteMax /> */}
+
+      <ControlAnimation />
     </>
   );
 };

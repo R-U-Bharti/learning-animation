@@ -39,7 +39,7 @@ canvas {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #09101f;
+  background-color: #182c57;
   border: 3px solid transparent;
   border-radius: 9px;
   background-clip: content-box;
