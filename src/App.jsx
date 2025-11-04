@@ -47,13 +47,13 @@ const App = () => {
       {/* <VideoSequence /> */}
       {/* <HorizontalScroll /> */}
       {/* <SquareRotation /> */}
-      {/* <ThreeIndex /> */}
+      <ThreeIndex />
 
       {/* <PinComponent /> */}
 
       {/* <RouteMax /> */}
 
-      <ControlAnimation />
+      {/* <ControlAnimation /> */}
     </>
   );
 };
