@@ -1,14 +1,19 @@
 import Lenis from "lenis";
-import { useEffect } from "react";
+import { useEffect, lazy } from "react";
 import "./App.css";
-import HorizontalScroll from "./Components/Horizontal/HorizontalScroll";
-import Test from "./Components/Test";
-import SquareRotation from "./Components/SquareRotation";
-import MapSvg from "./Components/MapSvg";
-import ThreeIndex from "./Components/R3F/ThreeIndex";
-import RouteMax from "./Components/HSection4/RouteMax";
-import PinComponent from "./Components/R3F/PinComponent";
-import ControlAnimation from "./Components/R3F/CA/ControlAnimation";
+const HorizontalScroll = lazy(() =>
+  import("./Components/Horizontal/HorizontalScroll")
+);
+const Test = lazy(() => import("./Components/Test"));
+const SquareRotation = lazy(() => import("./Components/SquareRotation"));
+const MapSvg = lazy(() => import("./Components/MapSvg"));
+const ThreeIndex = lazy(() => import("./Components/R3F/ThreeIndex"));
+const RouteMax = lazy(() => import("./Components/HSection4/RouteMax"));
+const PinComponent = lazy(() => import("./Components/R3F/PinComponent"));
+const ControlAnimation = lazy(() =>
+  import("./Components/R3F/CA/ControlAnimation")
+);
+const PropertyFallback = lazy(() => import("./Components/PropertyFallback"));
 const App = () => {
   useEffect(() => {
     const lenis = new Lenis({
@@ -47,7 +52,8 @@ const App = () => {
       {/* <VideoSequence /> */}
       {/* <HorizontalScroll /> */}
       {/* <SquareRotation /> */}
-      <ThreeIndex />
+      {/* <ThreeIndex /> */}
+      <PropertyFallback />
 
       {/* <PinComponent /> */}
 

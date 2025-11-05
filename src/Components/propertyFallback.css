@@ -1,0 +1,21 @@
+#menu{
+    position: absolute;
+    anchor-name: --menu-button;
+    /* position-area: bottom center; */
+    top: anchor(bottom);
+    left: anchor(left);
+    position-try-fallbacks: --below-right, --below-left;
+}
+
+
+@position-try --below-right{
+    inset: unset;
+    top: anchor(bottom);
+    left: anchor(left)
+}
+
+@position-try --below-left{
+    inset: unset;
+    top: anchor(bottom);
+    right: anchor(right)
+}
