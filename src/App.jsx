@@ -1,6 +1,7 @@
 import Lenis from "lenis";
 import { useEffect, lazy } from "react";
 import "./App.css";
+import LearningAdvanceIndex from "./Components/advance/LearningAdvanceIndex";
 const HorizontalScroll = lazy(() =>
   import("./Components/Horizontal/HorizontalScroll")
 );
@@ -53,13 +54,15 @@ const App = () => {
       {/* <HorizontalScroll /> */}
       {/* <SquareRotation /> */}
       {/* <ThreeIndex /> */}
-      <PropertyFallback />
+      {/* <PropertyFallback /> */}
 
       {/* <PinComponent /> */}
 
       {/* <RouteMax /> */}
 
       {/* <ControlAnimation /> */}
+
+      <LearningAdvanceIndex />
     </>
   );
 };
