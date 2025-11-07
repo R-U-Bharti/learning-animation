@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useRef } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { WorldScene } from "./WorldScene";
 import * as THREE from "three";
 import { Loader } from "./Loader";
@@ -41,13 +41,7 @@ export default function LearningAdvanceIndex() {
 
   return (
     <div className="h-screen w-screen overflow-clip">
-      <Canvas
-        onCreated={({ camera, scene }) => {
-          // camera?.lookAt(500, 10, 0);
-          // camera?.updateProjectionMatrix();
-        }}
-        shadows
-      >
+      <Canvas shadows>
         <Environment files="/sky.exr" background />
         {/* <PerspectiveCamera
           near={0.1}
@@ -58,12 +52,12 @@ export default function LearningAdvanceIndex() {
         /> */}
 
         <ControlledCamera />
-        {/* <OrbitControls
+        <OrbitControls
           enablePan={true}
           enableZoom={true}
           minPolarAngle={getRadians(45)}
           maxPolarAngle={getRadians(90)}
-        /> */}
+        />
         <gridHelper args={[10, 10]} />
         <axesHelper args={[5]} />
         <DirectionalLightWithHelper />
@@ -73,12 +67,12 @@ export default function LearningAdvanceIndex() {
           rotation={[getRadians(90), 0, 0]}
           receiveShadow
         >
-          <meshStandardMaterial color={"#15224f"} side={2} />
+          <meshStandardMaterial color={"#0c2855"} side={2} />
         </Circle>
 
         <Suspense fallback={<Loader />}>
           <group ref={modelRef}>
-            <WorldScene />
+            <WorldScene onClick={e => console.log(e.object?.name)} />
           </group>
         </Suspense>
       </Canvas>
